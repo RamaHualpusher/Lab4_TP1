@@ -6,25 +6,32 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Lista</title>
 </head>
-<body>
+<body onload="getAll()">
     <h1>Ingreso correcto</h1>
-    <h2>Lista de usuarios</h2>
-    <table>
-        <thead>
-            <tr>
-                <th>Nombre</th>
-                <th>Apellido</th>
-                <th>Edad</th>
-                <th>Correo</th>
-            </tr>
-        </thead>
-        <tbody id="tbody">
-        </tbody>
-    </table>
-
     <button onclick="logout()">Logout</button>
+    <h2>Lista de usuarios</h2>
+    <!--Crear una grilla tipo tabla con los siguientes campos
+    Id, Usuario,Bloqueado, Apellido, Nombre, Bloquear, Desbloquear
+    -->
+    <div class="table">
+        <div class="row">
+            <div class="table-head">Id</div>
+            <div class="table-head">Usuario</div>
+            <div class="table-head">Bloqueado</div>
+            <div class="table-head">Apellido</div>
+            <div class="table-head">Nombre</div>
+            <div class="table-head">Bloquear</div>
+            <div class="table-head">Desbloquear</div>
+        </div>
+        <div id="content-table">
+            <!--Aca se cargan los datos de la tabla-->
+        </div>
+    </div>
+
+    
 
     
     <script src="../js/login.js"></script>
+    <script src="../js/lista.js"></script>
 </body>
 </html>
