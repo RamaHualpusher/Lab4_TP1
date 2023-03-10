@@ -1,0 +1,85 @@
+*{
+    box-sizing: border-box;
+}
+.table {
+    display: grid;
+    width: 100%;
+    max-width: 100%;
+    margin-bottom: 20px;
+    border: 1px solid #ddd;
+    border-collapse: collapse;
+    border-spacing: 0;
+    background-color: transparent;
+}
+
+/* Usando las clases .row y .col crear una grilla de 7 columnas usando grid */
+.row {
+    display: grid;
+    grid-template-columns: 0.5fr 1fr 1fr 1fr 1fr 0.5fr 0.5fr;
+}
+.row-head{
+    background-color: #ddd;
+    
+}
+.row-red{
+    background-color: #8f2929;
+}
+.row-green{
+    background-color: #2e8b57;
+}
+.col-head{
+    border: 1px solid #000;
+    padding: 20px 0;
+    font-weight: bold;
+    text-align: center;
+    font-size: 1.2em;
+}
+.col-item {
+    text-align: justify;
+    text-indent: 15px;
+    padding: 10px 0;
+    border: 1px solid #000;
+    font-size: 1.1em;
+}
+.col-item-center{
+    text-align: center;
+    padding: 10px 0;
+    border: 1px solid #000;
+    font-size: 1.1em;
+}
+.col-item-center-btn{
+    text-align: center;
+    padding: 10px;
+    border: 1px solid #000;
+    font-size: 1.1em;
+}
+
+.btn-success{
+    background-color: #5cb85c;
+    border-color: #4cae4c;
+    color: #fff;
+    padding: 5px 10px;
+    border-radius: 5px;
+    text-decoration: none;
+    cursor: pointer;
+}
+.btn-success:hover{
+    background-color: #449d44;
+    border-color: #398439;
+    color: #fff;
+}
+.btn-danger{
+    background-color: #d9534f;
+    border-color: #d43f3a;
+    color: #fff;
+    padding: 5px 8px;
+    border-radius: 5px;
+    text-decoration: none;
+    cursor: pointer;
+}
+.btn-danger:hover{
+    background-color: #c9302c;
+    border-color: #ac2925;
+    color: #fff;
+}
+

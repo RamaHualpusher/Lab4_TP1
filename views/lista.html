@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../css/lista.css">
     <title>Lista</title>
 </head>
 <body onload="getAll()">
@@ -15,18 +16,20 @@
     -->
     <div class="table">
         <div class="row row-head">
-            <div class="table-head">Id</div>
-            <div class="table-head">Usuario</div>
-            <div class="table-head">Bloqueado</div>
-            <div class="table-head">Apellido</div>
-            <div class="table-head">Nombre</div>
-            <div class="table-head">Bloquear</div>
-            <div class="table-head">Desbloquear</div>
+            <div class="col col-head">Id</div>
+            <div class="col col-head">Usuario</div>
+            <div class="col col-head">Bloqueado</div>
+            <div class="col col-head">Apellido</div>
+            <div class="col col-head">Nombre</div>
+            <div class="col col-head">Bloquear</div>
+            <div class="col col-head">Desbloquear</div>
         </div>
         <div id="content-table">
             <!--Aca se cargan los datos de la tabla-->
         </div>
     </div>
+
+    <button class="btn-success" onclick="nextPage()">NEXT</button>
 
     
 
