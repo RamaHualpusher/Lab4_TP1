@@ -7,20 +7,20 @@
     <title>TP_1 - Ramiro Hualpa</title>
 </head>
 <body>
-    <form>
+    <form method="post">
         <div class="form-control">
             <label for="username">Usuario</label>
-            <input type="text" name="username" placeholder="Ingrese el nombre de usuario" minlength="3">
+            <input type="text" name="user" id="user" placeholder="Ingrese el nombre de usuario" minlength="3">
         </div>
         <div class="form-control">
             <label for="password">Contraseña</label>
-            <input type="password" name="password" placeholder="Ingrese la contraseña" minlength="3">
+            <input type="password" name="pass" id="pass" placeholder="Ingrese la contraseña" minlength="3">
         </div>
         <div class="form-control">
-            <button type="submit" onsubmit="ingreso()">Ingresar</button>
+            <button type="button" onclick="login()">Ingresar</button>
         </div>
         
     </form>
 </body>
-<script src="./main.js"></script>
+<script type="module" src="../js/main.js"></script>
 </html>
