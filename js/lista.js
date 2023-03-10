@@ -12,7 +12,7 @@ function getAll() {
       tabla.innerHTML = "";
       for (let i = 0; i < 30; i++) {
         tabla.innerHTML += `
-            <div class="row">
+            <div class="row row-item">
                 <div class="table-item">${data[i].id}</div>
                 <div class="table-item">${data[i].usuario}</div>
                 <div class="table-item">${data[i].bloqueado}</div>
@@ -35,6 +35,7 @@ function bloquear(id) {
     .then((response) => response.json())
     .then((data) => {
       console.log(data);
+      //TODO: toggle class
       getAll();
     });
 }
@@ -48,6 +49,7 @@ function desbloquear(id) {
     .then((response) => response.json())
     .then((data) => {
       console.log(data);
+      //TODO: toggle class
       getAll();
     });
 }
