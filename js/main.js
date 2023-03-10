@@ -1,9 +1,5 @@
-var log = require ('./login.js');
 function goLogin(){
+    sessionStorage.getItem("user") ? 
+    window.location.href = "/views/lista.html" :
     window.location.href = "/views/login.html";
-}
-function login(){
-  let user = document.getElementById("user").value;
-    let pass = document.getElementById("pass").value;
-  console.log(user, pass);
 }
