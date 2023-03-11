@@ -22,8 +22,8 @@ function getAll() {
                 <div class="col-item-center">${data[i].bloqueado}</div>
                 <div class="col-item">${data[i].apellido}</div>
                 <div class="col-item">${data[i].nombre}</div>
-                <div class="col-item-center"> <button class="btn btn-success" onclick="bloquear(${data[i].id})"><i class="fa-solid fa-lock"></i></button> </div>
-                <div class="col-item-center"> <button class="btn btn-danger" onclick="desbloquear(${data[i].id})"><i class="fa-solid fa-lock-open"></i></button> </div>
+                <div class="col-item-center"> <button class="btn btn-danger" onclick="bloquear(${data[i].id})"><i class="fa-solid fa-lock"></i></button> </div>
+                <div class="col-item-center"> <button class="btn btn-success" onclick="desbloquear(${data[i].id})"><i class="fa-solid fa-lock-open"></i></button> </div>
             </div>    
             `;
         }else{
@@ -34,8 +34,8 @@ function getAll() {
                 <div class="col-item-center">${data[i].bloqueado}</div>
                 <div class="col-item">${data[i].apellido}</div>
                 <div class="col-item">${data[i].nombre}</div>
-                <div class="col-item-center-btn"> <button class="btn btn-success" onclick="bloquear(${data[i].id})"><i class="fa-solid fa-lock"></i></button> </div>
-                <div class="col-item-center-btn"> <button class="btn btn-danger" onclick="desbloquear(${data[i].id})"><i class="fa-solid fa-lock-open"></i></button> </div>
+                <div class="col-item-center-btn"> <button class="btn btn-danger" onclick="bloquear(${data[i].id})"><i class="fa-solid fa-lock"></i></button> </div>
+                <div class="col-item-center-btn"> <button class="btn btn-success" onclick="desbloquear(${data[i].id})"><i class="fa-solid fa-lock-open"></i></button> </div>
             </div>    
             `;
         }
