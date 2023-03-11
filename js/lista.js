@@ -5,6 +5,7 @@ let letStart = 30;
 
 
 function getAll() {
+  getUser();
   let url = "http://168.194.207.98:8081/tp/lista.php?action=BUSCAR";
   fetch(url)
     .then((response) => response.json())
@@ -13,7 +14,7 @@ function getAll() {
       let tabla = document.getElementById("content-table");
       tabla.innerHTML = "";
       for (let i = letStart; i < letStart+30; i++) {
-        if(data[i].bloqueado == "Y"){
+        if(data[i].bloqueado == "N"){
         tabla.innerHTML += `
             <div class="row row-green" id="row-item-${data[i].id}">
                 <div class="col-item-center">${data[i].id}</div>
@@ -21,8 +22,8 @@ function getAll() {
                 <div class="col-item-center">${data[i].bloqueado}</div>
                 <div class="col-item">${data[i].apellido}</div>
                 <div class="col-item">${data[i].nombre}</div>
-                <div class="col-item-center-btn"> <button class="btn btn-success" onclick="bloquear(${data[i].id})">BLOQUEAR</button> </div>
-                <div class="col-item-center-btn"> <button class="btn btn-danger" onclick="desbloquear(${data[i].id})">DESBLOQUEAR</button> </div>
+                <div class="col-item-center"> <button class="btn btn-success" onclick="bloquear(${data[i].id})"><i class="fa-solid fa-lock"></i></button> </div>
+                <div class="col-item-center"> <button class="btn btn-danger" onclick="desbloquear(${data[i].id})"><i class="fa-solid fa-lock-open"></i></button> </div>
             </div>    
             `;
         }else{
@@ -33,13 +34,20 @@ function getAll() {
                 <div class="col-item-center">${data[i].bloqueado}</div>
                 <div class="col-item">${data[i].apellido}</div>
                 <div class="col-item">${data[i].nombre}</div>
-                <div class="col-item-center-btn"> <button class="btn btn-success" onclick="bloquear(${data[i].id})">BLOQUEAR</button> </div>
-                <div class="col-item-center-btn"> <button class="btn btn-danger" onclick="desbloquear(${data[i].id})">DESBLOQUEAR</button> </div>
+                <div class="col-item-center-btn"> <button class="btn btn-success" onclick="bloquear(${data[i].id})"><i class="fa-solid fa-lock"></i></button> </div>
+                <div class="col-item-center-btn"> <button class="btn btn-danger" onclick="desbloquear(${data[i].id})"><i class="fa-solid fa-lock-open"></i></button> </div>
             </div>    
             `;
         }
       }
     });
+}
+
+function getUser(){
+  const subtitle = document.getElementById("sub-title").value;
+  const user = sessionStorage.getItem("user").toUpperCase();
+  console.log(user);
+  document.getElementById("sub-title").innerHTML = `Bienvenido ${user}`;
 }
 
 function nextPage(){

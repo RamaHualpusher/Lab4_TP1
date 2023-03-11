@@ -4,13 +4,16 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css" integrity="sha512-SzlrxWUlpfuzQ+pcUCosxcglQRNAq/DZjVsC0lE40xsADsfeQoEypE+enwcOiGjk/bSuGGKHEyjSoQ1zVisanQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="../css/lista.css">
     <title>Lista</title>
 </head>
 <body onload="getAll()">
-    <h1>Ingreso correcto</h1>
-    <button onclick="logout()">Logout</button>
-    <h2>Lista de usuarios</h2>
+    <button class="btn-logout" onclick="logout()">Logout</button>
+    <div class="title-container">
+        <h1 class="title">Lista de usuarios</h1>
+        <h2 class="sub-title" id="sub-title"></h2>
+    </div>
     <!--Crear una grilla tipo tabla con los siguientes campos
     Id, Usuario,Bloqueado, Apellido, Nombre, Bloquear, Desbloquear
     -->
@@ -21,8 +24,8 @@
             <div class="col col-head">Bloqueado</div>
             <div class="col col-head">Apellido</div>
             <div class="col col-head">Nombre</div>
-            <div class="col col-head">Bloquear</div>
-            <div class="col col-head">Desbloquear</div>
+            <div class="col col-head"><i class="fa-solid fa-lock"></i></div>
+            <div class="col col-head"><i class="fa-solid fa-lock-open"></i></div>
         </div>
         <div id="content-table">
             <!--Aca se cargan los datos de la tabla-->
