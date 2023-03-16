@@ -162,4 +162,26 @@ body{
     text-align: center;
     padding: 20px 0;
 }
-
+.btn-control{
+    background-color: #5cb85c;
+    border-color: #4cae4c;
+    font-size: 1.5em;
+    width: 30%;
+    color: #fff;
+    padding: 20px 12px;
+    border-radius: 5px;
+    text-decoration: none;
+    cursor: pointer;
+    margin: 10px 5px;
+}
+.btn-control:hover{
+    background-color: #449d44;
+    border-color: #398439;
+    color: #fff;
+}
+.btn-control:disabled{
+    background-color: #ddd;
+    border-color: #ddd;
+    color: #fff;
+    cursor: not-allowed;
+}

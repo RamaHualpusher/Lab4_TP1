@@ -4,6 +4,24 @@
 
 var isVerificado = false;
 
+var arrayData = [];
+var numeroPagina = 1;
+var cantidadPorPagina = 15;
+var MAX_PAGE = 0;
+var arrayDataPaginado = [];
+
+function paginarDatos(data, numeroPagina, cantidadPorPagina) {
+  let arrayPaginado = [];
+  let inicio = (numeroPagina - 1) * cantidadPorPagina;
+  let fin = numeroPagina * cantidadPorPagina;
+  for (let i = inicio; i < fin; i++) {
+    arrayPaginado.push(data[i]);
+  }
+  return arrayPaginado;
+}
+
+
+
 function verificarSession() {
   if (sessionStorage.getItem("user") == null) {
     window.location.href = "login.html";
@@ -16,11 +34,16 @@ function getAll() {
     isVerificado = true;
   }
   getUser();
+  numeroPagina = 1;
   let url = "http://168.194.207.98:8081/tp/lista.php?action=BUSCAR";
   fetch(url)
     .then((response) => response.json())
     .then((data) => {
-      llenarTabla(data);
+      arrayData = data;
+      MAX_PAGE = Math.floor(arrayData.length / cantidadPorPagina);
+      setStatusButtons();
+      arrayDataPaginado = paginarDatos(arrayData, numeroPagina, cantidadPorPagina);
+      llenarTabla(arrayDataPaginado);
     });
 }
 
@@ -58,13 +81,19 @@ function desbloquear(id) {
 }
 
 function buscar() {
+  numeroPagina = 1;
   const busqueda = document.getElementById("buscarUser").value;
   let url =
     "http://168.194.207.98:8081/tp/lista.php?action=BUSCAR&usuario=" + busqueda;
   fetch(url)
     .then((response) => response.json())
     .then((data) => {
-      llenarTabla(data);
+      arrayData = data;
+      
+      MAX_PAGE = Math.floor(arrayData.length / cantidadPorPagina);
+      setStatusButtons();
+      arrayDataPaginado = paginarDatos(arrayData, numeroPagina, cantidadPorPagina);
+      llenarTabla(arrayDataPaginado);
     });
 }
 
@@ -78,7 +107,7 @@ function llenarTabla(data) {
   } else {
     //Sólo pinto hasta los primeros 30 registros por rendimiento.
     //Voy a seguir investigando cómo paginar los resultados para que no se vea tan feo.
-    for (let i = 0; i < data.length && i < 30; i++) {
+    for (let i = 0; i < data.length; i++) {
       if (data[i].bloqueado == "N") {
         tabla.innerHTML += `
         <div class="row row-green" id="row-item-${data[i].id}">
@@ -106,4 +135,61 @@ function llenarTabla(data) {
       }
     }
   }
+}
+
+
+function enableNext(){
+const next = document.getElementById("next");
+next.disabled = false;
+}
+
+function enablePrev(){
+const prev = document.getElementById("prev");
+prev.disabled = false;
+}
+
+function disabledNext(){
+const next = document.getElementById("next");
+next.disabled = true;
+}
+
+function disabledPrev(){
+const prev = document.getElementById("prev");
+prev.disabled = true;
+}
+
+function hasNext(){
+return numeroPagina < MAX_PAGE
+}
+
+function hasPrev(){
+return numeroPagina > 1
+}
+
+function setStatusButtons(){
+  (!hasNext()) ? disabledNext() : enableNext();
+  (!hasPrev()) ? disabledPrev() : enablePrev();
+}
+
+function next(){
+setStatusButtons();
+if(hasNext()){
+  numeroPagina++;
+  console.log("next");
+  console.log(numeroPagina);
+  arrayDataPaginado = paginarDatos(arrayData, numeroPagina, cantidadPorPagina);
+  llenarTabla(arrayDataPaginado);
+  setStatusButtons();
+}
+}
+function prev(){
+setStatusButtons();
+if(hasPrev()){
+  numeroPagina--;
+  console.log("prev");
+  console.log(numeroPagina);
+  arrayDataPaginado = paginarDatos(arrayData, numeroPagina, cantidadPorPagina);
+  llenarTabla(arrayDataPaginado);
+  setStatusButtons();
+}
 }
